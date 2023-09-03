@@ -1,28 +1,33 @@
 #include <iostream>
 using namespace std;
-
-int getSum(int *arr, int size)
-{
-    int sum = 0;
-    for (int i = 0; i < size; i++)
-    {
-        sum += arr[i];
-    }
-    return sum;
-}
 int main()
 {
-    int n;
-    cout << "Enter a number : ";
-    cin >> n;
-    int *arr = new int[n];
-    for (int i = 0; i < n; i++)
+    int row;
+    int col;
+    cout << "Enter row : ";
+    cin >> row;
+    cout << "Enter columnn : ";
+    cin >> col;
+
+    int **arr = new int *[row];
+    for (int i = 0; i < row; i++)
     {
-        cout << "Enter elements [" << i << "]"
-             << " : ";
-        cin >> arr[i];
+        arr[i] = new int[col];
     }
-    int ans = getSum(arr, n);
-    cout << "The sum is : " << ans << endl;
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
